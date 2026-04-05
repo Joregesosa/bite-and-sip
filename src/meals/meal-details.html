@@ -1,0 +1,293 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"
+    ></script>
+    <script src="../js/meal-details.js" type="module"></script>
+  </head>
+  <body
+    class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <main class="pt-16 min-h-screen">
+      <!-- Hero Background Banner -->
+      <section
+        class="relative h-102.25 w-full overflow-hidden"
+        id="details-hero"
+      >
+        <div class="w-full h-full bg-surface-container-high animate-pulse"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-surface to-transparent z-10"></div>
+        <div class="absolute bottom-12 left-8 md:left-16 z-20 animate-pulse space-y-4">
+          <div class="h-5 w-40 bg-surface-container-highest/60 rounded-full"></div>
+          <div class="h-14 w-80 bg-surface-container-highest/60 rounded-xl"></div>
+        </div>
+      </section>
+      <!-- Main Content Grid -->
+      <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <!-- Top Left: Featured Card -->
+          <div class="lg:col-span-7 group">
+            <div
+              class="relative bg-surface-container-high rounded-xl overflow-hidden ghost-border h-full flex flex-col"
+              id="meal-overview"
+            >
+              <div class="animate-pulse flex flex-col h-full">
+                <div class="h-60 bg-surface-container-highest shrink-0"></div>
+                <div class="absolute top-4 right-4 flex gap-2">
+                  <div class="h-7 w-16 bg-surface-container-highest/60 rounded-lg"></div>
+                  <div class="h-7 w-16 bg-surface-container-highest/60 rounded-lg"></div>
+                </div>
+                <div class="p-8 flex flex-col gap-6 flex-1">
+                  <div class="h-8 bg-surface-container-highest rounded-lg w-3/4"></div>
+                  <div class="space-y-3">
+                    <div class="h-4 bg-surface-container-highest rounded-lg"></div>
+                    <div class="h-4 bg-surface-container-highest rounded-lg w-5/6"></div>
+                    <div class="h-4 bg-surface-container-highest rounded-lg w-4/6"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Top Right: Description Card -->
+          <div class="lg:col-span-5">
+            <div
+              class="bg-surface-container-low rounded-xl p-8 h-full flex flex-col justify-center border-l-4 border-primary/20"
+            >
+              <div class="mb-6">
+                <span
+                  class="text-primary font-bold text-sm tracking-widest font-label uppercase"
+                >
+                  Customer's Note
+                </span>
+              </div>
+              <p
+                class="text-xl font-headline text-on-surface italic leading-relaxed mb-8"
+                id="customer-satisfaction"
+              >
+                <span class="block animate-pulse space-y-3">
+                  <span class="block h-5 bg-surface-container-highest rounded mb-2"></span>
+                  <span class="block h-5 bg-surface-container-highest rounded mb-2"></span>
+                  <span class="block h-5 bg-surface-container-highest rounded mb-2 w-5/6"></span>
+                  <span class="block h-5 bg-surface-container-highest rounded w-3/4"></span>
+                </span>
+              </p>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/40"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    data-alt="professional portrait of a male sommelier with a sophisticated smile in a dark suit"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuArtQ7IpsEjAtk3dyhijMxn8r4Tm8wz286lKU1qevEjKPmSFHlDqcWUWiiiDfUr1QSD5Ed-p3Ef3tK3SCX69lSBPcGZTNV-2kqS2LB9bCRba1LJi0LkO9jxKl48ArI2kjLqRDcRhyChWXrjmUvA8J3sdlXLt5y0zW1otYLvnio44S2iXATbafUa6mG2Rd9lZpDlKeHu7eIfsom76FU0VgOHTyeua2lw7LwQ75pzuV7NW1CF-KVcdmSc5bYv6Tm72sO8Ig9jvFY5UQY"
+                  />
+                </div>
+                <div>
+                  <h4 class="font-bold text-on-surface">Julian Vane</h4>
+                  <p
+                    class="text-xs text-on-surface-variant font-label tracking-wider uppercase"
+                  >
+                    Master Mixologist
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Bottom Left Stack -->
+          <div class="lg:col-span-4 flex flex-col gap-8">
+            <!-- Ingredients List Card -->
+            <div class="bg-surface-container-high rounded-xl p-6 ghost-border">
+              <h3
+                class="text-xl font-headline font-bold mb-6 flex items-center gap-2"
+              >
+                <span class="material-symbols-outlined text-primary"
+                  >format_list_bulleted</span
+                >
+                Ingredients
+              </h3>
+              <ul class="space-y-4 animate-pulse" id="measure-ingredients">
+                <li class="flex justify-between items-center py-2 border-b border-primary/5">
+                  <div class="h-4 bg-surface-container-highest rounded w-32"></div>
+                  <div class="h-4 bg-surface-container-highest rounded w-10"></div>
+                </li>
+                <li class="flex justify-between items-center py-2 border-b border-primary/5">
+                  <div class="h-4 bg-surface-container-highest rounded w-28"></div>
+                  <div class="h-4 bg-surface-container-highest rounded w-10"></div>
+                </li>
+                <li class="flex justify-between items-center py-2 border-b border-primary/5">
+                  <div class="h-4 bg-surface-container-highest rounded w-36"></div>
+                  <div class="h-4 bg-surface-container-highest rounded w-10"></div>
+                </li>
+                <li class="flex justify-between items-center py-2">
+                  <div class="h-4 bg-surface-container-highest rounded w-24"></div>
+                  <div class="h-4 bg-surface-container-highest rounded w-10"></div>
+                </li>
+              </ul>
+              <button
+                class="w-full mt-6 py-4 bg-linear-to-r from-primary-container to-primary text-on-primary font-bold rounded-full transition-transform active:scale-95 shadow-lg shadow-primary/20"
+              >
+                Add to Shopping List
+              </button>
+            </div>
+            <!-- Video preparation instructions -->
+            <div
+              class="relative rounded-xl overflow-hidden aspect-video ghost-border"
+              id="meal-video"
+            >
+              <div class="w-full h-full bg-surface-container-highest animate-pulse"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-16 h-16 rounded-full bg-surface-container-high animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Bottom Right: Tall Preparation Steps Card -->
+          <div class="lg:col-span-8">
+            <div
+              class="bg-surface-container rounded-xl p-8 md:p-12 h-full flex flex-col ghost-border relative overflow-hidden"
+            >
+              <!-- Decorative gradient blob -->
+              <div
+                class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-[100px]"
+              ></div>
+              <h3
+                class="text-3xl font-headline font-black mb-10 flex items-center gap-4"
+              >
+                <span class="text-primary-container text-5xl">01.</span>
+                Preparation Ritual
+              </h3>
+              <ul class="space-y-12 relative animate-pulse" id="instructions-list">
+                <li class="flex gap-6">
+                  <div class="shrink-0 w-10 h-10 rounded-full bg-surface-container-highest"></div>
+                  <div class="flex-1 space-y-2 pt-1">
+                    <div class="h-4 bg-surface-container-highest rounded w-1/3"></div>
+                    <div class="h-4 bg-surface-container-highest rounded w-full"></div>
+                    <div class="h-4 bg-surface-container-highest rounded w-5/6"></div>
+                  </div>
+                </li>
+                <li class="flex gap-6">
+                  <div class="shrink-0 w-10 h-10 rounded-full bg-surface-container-highest"></div>
+                  <div class="flex-1 space-y-2 pt-1">
+                    <div class="h-4 bg-surface-container-highest rounded w-1/4"></div>
+                    <div class="h-4 bg-surface-container-highest rounded w-full"></div>
+                    <div class="h-4 bg-surface-container-highest rounded w-4/6"></div>
+                  </div>
+                </li>
+                <li class="flex gap-6">
+                  <div class="shrink-0 w-10 h-10 rounded-full bg-surface-container-highest"></div>
+                  <div class="flex-1 space-y-2 pt-1">
+                    <div class="h-4 bg-surface-container-highest rounded w-2/5"></div>
+                    <div class="h-4 bg-surface-container-highest rounded w-full"></div>
+                    <div class="h-4 bg-surface-container-highest rounded w-3/4"></div>
+                  </div>
+                </li>
+                <li class="flex gap-6">
+                  <div class="shrink-0 w-10 h-10 rounded-full bg-surface-container-highest"></div>
+                  <div class="flex-1 space-y-2 pt-1">
+                    <div class="h-4 bg-surface-container-highest rounded w-1/3"></div>
+                    <div class="h-4 bg-surface-container-highest rounded w-full"></div>
+                    <div class="h-4 bg-surface-container-highest rounded w-5/6"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-slate-950 w-full border-t border-rose-500/20">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-12 px-8 py-16 max-w-7xl mx-auto"
+      >
+        <div>
+          <h2
+            class="text-2xl font-black text-rose-500 uppercase font-headline mb-6 tracking-widest"
+          >
+            Bite &amp; Sip
+          </h2>
+          <p
+            class="text-slate-500 max-w-xs font-['Inter'] text-sm tracking-wide leading-relaxed"
+          >
+            Elevating the late-night culinary experience through curated
+            mixology and artisanal recipe design.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-8">
+          <div>
+            <h4
+              class="text-rose-400 font-bold mb-4 font-['Inter'] text-sm uppercase tracking-widest"
+            >
+              The Guild
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  class="text-slate-500 hover:text-rose-300 transition-all font-['Inter'] text-sm tracking-wide"
+                  href="#"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-slate-500 hover:text-rose-300 transition-all font-['Inter'] text-sm tracking-wide"
+                  href="#"
+                  >Send your review</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="text-rose-400 font-bold mb-4 font-['Inter'] text-sm uppercase tracking-widest"
+            >
+              Legal
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  class="text-slate-500 hover:text-rose-300 transition-all font-['Inter'] text-sm tracking-wide"
+                  href="#"
+                  >Privacy</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="px-8 py-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4"
+      >
+        <p
+          class="text-slate-500 font-['Inter'] text-sm tracking-wide opacity-80"
+        >
+          © 2024 Bite &amp; Sip. The Midnight Sommelier.
+        </p>
+        <div class="flex gap-6">
+          <span
+            class="material-symbols-outlined text-slate-500 hover:text-rose-400 transition-all cursor-pointer"
+            >public</span
+          >
+          <span
+            class="material-symbols-outlined text-slate-500 hover:text-rose-400 transition-all cursor-pointer"
+            >potted_plant</span
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

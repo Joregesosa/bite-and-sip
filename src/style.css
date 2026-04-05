@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@source "../public/partials/**/*.html";
+
+@theme {
+  --font-headline: "Epilogue", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  --color-on-tertiary-fixed-variant: #005233;
+  --color-on-surface-variant: #e3bdbf;
+  --color-on-primary-fixed: #40000d;
+  --color-on-tertiary: #003822;
+  --color-surface-dim: #0b1326;
+  --color-primary-fixed-dim: #ffb2b7;
+  --color-primary-container: #ff516a;
+  --color-on-secondary-container: #ff989f;
+  --color-outline-variant: #5b4041;
+  --color-outline: #aa888a;
+  --color-tertiary: #64dca0;
+  --color-secondary-fixed-dim: #ffb2b7;
+  --color-surface-container-lowest: #060e20;
+  --color-primary-fixed: #ffdadb;
+  --color-on-error: #690005;
+  --color-inverse-surface: #dae2fd;
+  --color-on-background: #dae2fd;
+  --color-secondary-fixed: #ffdadb;
+  --color-inverse-on-surface: #283044;
+  --color-surface-container-low: #131b2e;
+  --color-surface-bright: #31394d;
+  --color-error: #ffb4ab;
+  --color-on-primary-fixed-variant: #92002a;
+  --color-surface-container-highest: #2d3449;
+  --color-inverse-primary: #bc0b3b;
+  --color-primary: #ffb2b7;
+  --color-surface-variant: #2d3449;
+  --color-tertiary-fixed: #82f9ba;
+  --color-on-tertiary-fixed: #002112;
+  --color-secondary: #ffb2b7;
+  --color-on-secondary-fixed: #40000d;
+  --color-tertiary-fixed-dim: #64dca0;
+  --color-surface-container: #171f33;
+  --color-background: #0b1326;
+  --color-secondary-container: #822432;
+  --color-on-secondary: #630b1e;
+  --color-surface-container-high: #222a3d;
+  --color-on-secondary-fixed-variant: #822432;
+  --color-tertiary-container: #1fa46d;
+  --color-surface-tint: #ffb2b7;
+  --color-on-primary-container: #5b0017;
+  --color-on-primary: #67001b;
+  --color-on-surface: #dae2fd;
+  --color-error-container: #93000a;
+  --color-surface: #0b1326;
+  --color-on-error-container: #ffdad6;
+  --color-on-tertiary-container: #00311d;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+  vertical-align: middle;
+}
+
+.glass-effect {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.ghost-border {
+  border: 1px solid rgba(255, 178, 183, 0.2);
+}

@@ -1,0 +1,278 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Bite &amp; Sip | Home</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="./js/main.js" type="module"></script>
+  </head>
+
+  <body
+    class="bg-surface text-on-background font-body selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <main class="pt-24 pb-16 px-6 max-w-7xl mx-auto space-y-24">
+      <section class="relative group" id="hero">
+        <div
+          class="relative h-150 w-full rounded-[2.5rem] overflow-hidden bg-surface-container-low shadow-2xl transition-all duration-500 hover:scale-[1.01]"
+        >
+          <div
+            class="absolute inset-0 bg-surface-container-highest animate-pulse"
+          ></div>
+          <img
+            alt="Random Drink Recommendation"
+            class="absolute inset-0 w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700"
+            data-alt="Close-up of a vibrant cocktail with fresh mint and berries on a dark marble bar top, warm golden backlighting, cinematic atmosphere"
+          />
+          <div
+            class="absolute inset-0 bg-linear-to-t from-surface via-surface/40 to-transparent"
+          ></div>
+          <div class="absolute bottom-0 left-0 p-12 w-full md:w-2/3">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary-container text-on-primary-container text-xs font-bold tracking-widest uppercase mb-6"
+            >
+              <span
+                class="material-symbols-outlined text-sm"
+                data-icon="auto_awesome"
+                >auto_awesome</span
+              >
+              Tonight's recommendation
+            </div>
+            <h1
+              class="text-6xl md:text-8xl font-headline font-black text-on-surface mb-8 tracking-tighter leading-none"
+            >
+              <span
+                class="block h-16 md:h-24 bg-surface-container-highest/60 rounded-xl w-64 mb-3 animate-pulse"
+              ></span>
+              <span
+                class="block h-16 md:h-24 bg-surface-container-highest/60 rounded-xl w-80 animate-pulse"
+              ></span>
+            </h1>
+            <p
+              class="text-xl text-on-surface-variant max-w-lg mb-10 leading-relaxed font-light"
+            >
+              <span class="block animate-pulse space-y-3">
+                <span
+                  class="block h-5 bg-surface-container-highest/60 rounded w-full"
+                ></span>
+                <span
+                  class="block h-5 bg-surface-container-highest/60 rounded w-5/6"
+                ></span>
+                <span
+                  class="block h-5 bg-surface-container-highest/60 rounded w-4/6"
+                ></span>
+              </span>
+            </p>
+            <button
+              class="px-8 py-4 rounded-full bg-linear-to-r from-primary-container to-primary text-on-primary font-bold text-lg hover:shadow-[0_0_20px_rgba(255,81,106,0.4)] transition-all active:scale-95"
+            >
+              See preparation details
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Top Categories -->
+      <section>
+        <div class="flex justify-between items-end mb-12">
+          <div>
+            <span
+              class="label-md font-label font-bold text-primary tracking-[0.2em] uppercase"
+              >Browse by</span
+            >
+            <h2
+              class="text-4xl font-headline font-extrabold text-on-surface mt-2"
+            >
+              Top Categories
+            </h2>
+          </div>
+          <a
+            class="px-6 py-2 rounded-full border border-primary/20 text-primary font-label font-semibold hover:bg-primary/5 transition-all"
+            href="/categories/index.html"
+          >
+            List more categories
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="category-list">
+          <div
+            class="h-80 rounded-4xl bg-surface-container-low ghost-border p-8 flex flex-col justify-end relative animate-pulse"
+          >
+            <div
+              class="w-4/5 h-32 bg-surface-container-highest rounded-4xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            ></div>
+            <div class="h-7 bg-surface-container-highest rounded w-2/3"></div>
+          </div>
+          <div
+            class="h-80 rounded-4xl bg-surface-container-low ghost-border p-8 flex flex-col justify-end relative animate-pulse"
+          >
+            <div
+              class="w-4/5 h-32 bg-surface-container-highest rounded-4xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            ></div>
+            <div class="h-7 bg-surface-container-highest rounded w-3/4"></div>
+          </div>
+          <div
+            class="h-80 rounded-4xl bg-surface-container-low ghost-border p-8 flex flex-col justify-end relative animate-pulse"
+          >
+            <div
+              class="w-4/5 h-32 bg-surface-container-highest rounded-4xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+            ></div>
+            <div class="h-7 bg-surface-container-highest rounded w-1/2"></div>
+          </div>
+        </div>
+      </section>
+      <!-- Top Meals/Drinks -->
+      <section>
+        <div class="flex justify-between items-end mb-12">
+          <div>
+            <span
+              class="label-md font-label font-bold text-primary tracking-[0.2em] uppercase"
+              >The Classics</span
+            >
+            <h2
+              class="text-4xl font-headline font-extrabold text-on-surface mt-2"
+            >
+              Signature Selections
+            </h2>
+          </div>
+          <button
+            class="px-6 py-2 rounded-full border border-primary/20 text-primary font-label font-semibold hover:bg-primary/5 transition-all"
+          >
+            List more meals
+          </button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10" id="meal-list">
+          <div class="group animate-pulse">
+            <div
+              class="relative aspect-3/4 rounded-4xl overflow-hidden mb-6 ghost-border bg-surface-container-highest"
+            ></div>
+            <div
+              class="h-7 bg-surface-container-highest rounded w-3/4 mb-3"
+            ></div>
+            <div
+              class="h-4 bg-surface-container-highest rounded w-full mb-1"
+            ></div>
+            <div class="h-4 bg-surface-container-highest rounded w-5/6"></div>
+          </div>
+          <div class="group animate-pulse">
+            <div
+              class="relative aspect-3/4 rounded-4xl overflow-hidden mb-6 ghost-border bg-surface-container-highest"
+            ></div>
+            <div
+              class="h-7 bg-surface-container-highest rounded w-2/3 mb-3"
+            ></div>
+            <div
+              class="h-4 bg-surface-container-highest rounded w-full mb-1"
+            ></div>
+            <div class="h-4 bg-surface-container-highest rounded w-4/6"></div>
+          </div>
+          <div class="group animate-pulse">
+            <div
+              class="relative aspect-3/4 rounded-4xl overflow-hidden mb-6 ghost-border bg-surface-container-highest"
+            ></div>
+            <div
+              class="h-7 bg-surface-container-highest rounded w-3/5 mb-3"
+            ></div>
+            <div
+              class="h-4 bg-surface-container-highest rounded w-full mb-1"
+            ></div>
+            <div class="h-4 bg-surface-container-highest rounded w-5/6"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-rose-500/20">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-12 px-8 py-16 max-w-7xl mx-auto"
+      >
+        <!-- Branding Graphic Side -->
+        <div class="flex flex-col justify-between space-y-8">
+          <div>
+            <div
+              class="text-2xl font-black text-rose-500 uppercase font-['Inter'] mb-4"
+            >
+              Bite &amp; Sip
+            </div>
+            <p
+              class="text-slate-500 max-w-sm font-['Inter'] text-sm tracking-wide leading-relaxed"
+            >
+              Curating the finest culinary experiences for the nocturnal
+              enthusiast. From heritage spirits to avant-garde dining.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="flex gap-6">
+              <a
+                class="text-slate-500 hover:text-rose-300 transition-all"
+                href="#"
+                >Send your review</a
+              >
+              <a
+                class="text-slate-500 hover:text-rose-300 transition-all"
+                href="#"
+                >About Us</a
+              >
+              <a
+                class="text-slate-500 hover:text-rose-300 transition-all"
+                href="#"
+                >Privacy</a
+              >
+            </div>
+            <p
+              class="text-slate-500 font-['Inter'] text-sm tracking-wide opacity-80"
+            >
+              © 2024 Bite &amp; Sip. The Midnight Sommelier.
+            </p>
+          </div>
+        </div>
+        <!-- Contact Form Side -->
+        <div class="bg-surface-container-low p-10 rounded-4xl ghost-border">
+          <h3 class="text-2xl font-headline font-bold text-on-surface mb-6">
+            Contact the Atelier
+          </h3>
+          <form class="space-y-4">
+            <div>
+              <label
+                class="block text-xs font-bold text-primary tracking-widest uppercase mb-2"
+                >Identity</label
+              >
+              <input
+                class="w-full bg-surface-container-lowest border-none rounded-xl py-3 px-4 text-on-surface focus:ring-1 focus:ring-primary transition-all"
+                placeholder="Your name or pseudonym"
+                type="text"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-bold text-primary tracking-widest uppercase mb-2"
+                >Message</label
+              >
+              <textarea
+                class="w-full bg-surface-container-lowest border-none rounded-xl py-3 px-4 text-on-surface focus:ring-1 focus:ring-primary transition-all"
+                placeholder="Inquiries or shared secrets..."
+                rows="4"
+              ></textarea>
+            </div>
+            <button
+              class="w-full py-4 rounded-xl bg-primary text-on-primary font-bold hover:bg-primary-container transition-all active:scale-[0.98]"
+              type="submit"
+            >
+              Dispatch Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
