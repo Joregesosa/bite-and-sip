@@ -3,7 +3,7 @@ import { loadHeaderFooter, qs, shuffleArray } from "./utils.js";
 import MealsRequest from "./modules/MealsRequest.mjs";
 import GeminiRequest from "./modules/GeminiRequest.mjs";
 import { CategoryCard } from "./components/CategoryCard.js";
-import { MealCard, MealCardDetailed } from "./components/MealCard.js";
+import { MealCard } from "./components/MealCard.js";
 import { CULINARY_FACT_PROMPT } from "./consts.js";
 
 const mealsRequest = new MealsRequest();
@@ -58,7 +58,7 @@ async function displayTopMeals({ strCategory, idCategory }) {
   qs("#load-more-meals").href = `/meals/index.html?category=${idCategory}`;
   qs("#meal-list").innerHTML = shuffledMeals
     .slice(0, 6)
-    .map((meal) => MealCardDetailed(meal))
+    .map((meal) => MealCard(meal))
     .join("");
 }
 

@@ -3,7 +3,7 @@ import "../style.css";
 import { loadHeaderFooter, qs, shuffleArray, getParam } from "./utils.js";
 import { CategoryNavItem } from "./components/CategoryNavItem.js";
 import MealsRequest from "./modules/MealsRequest.mjs";
-import { MealCardDetailed } from "./components/MealCard.js";
+import { MealCard } from "./components/MealCard.js";
 
 const mealsRequest = new MealsRequest();
 
@@ -35,9 +35,7 @@ async function renderMealsByCategory() {
   const meals = await mealsRequest.getMealsByCategory(categoryName);
   const mealsContainer = qs("#meal-list");
   mealsContainer.innerHTML = "";
-  mealsContainer.innerHTML = meals.meals
-    .map((meal) => MealCardDetailed(meal))
-    .join("");
+  mealsContainer.innerHTML = meals.meals.map((meal) => MealCard(meal)).join("");
 }
 
 loadHeaderFooter();
