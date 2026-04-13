@@ -32,7 +32,7 @@ export default class MealsRequest extends BaseRequest {
    * @param {string} category - The category of meals to fetch.
    * @returns {Promise<Object>} - The response data containing the meals.
    */
-  async getMealByCategory(category) {
+  async getMealsByCategory(category) {
     console.log(category);
     this.url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
     return await this.send();

@@ -30,6 +30,8 @@ async function displayMeal() {
   qs("#hero img").src = meal.strMealThumb;
   qs("#hero h1").innerHTML = formattedMealName;
   qs("#hero p").textContent = description;
+  qs("#preparation-details").href =
+    `/meals/meal-details.html?meal=${meal.idMeal}`;
 }
 
 /**

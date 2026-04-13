@@ -10,9 +10,9 @@ export const CategoryCard = ({ strCategory, strCategoryThumb }) => /* html */ `
         <img
           src="${strCategoryThumb}"
           alt="${strCategory}"
-          class="w-4/5 object-cover rounded-4xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          class="w-4/6 object-cover rounded-4xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         />
-        <h3 class="text-2xl font-headline font-bold text-on-surface mb-2">
+        <h3 class="text-2xl font-headline font-bold text-on-surface my-2">
           ${strCategory}
         </h3> 
     </div>
