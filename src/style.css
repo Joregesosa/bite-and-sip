@@ -89,3 +89,11 @@
 .category-nav-item {
   @apply bg-surface-container-highest text-on-surface-variant hover:bg-surface-variant;
 }
+
+.form-status-success {
+  @apply bg-tertiary/10 text-tertiary border border-tertiary/20;
+}
+
+.form-status-error {
+  @apply bg-error/10 text-error border border-error/20;
+}

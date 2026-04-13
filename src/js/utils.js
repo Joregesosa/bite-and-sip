@@ -1,3 +1,5 @@
+import ContactForm from "./modules/ContactForm.mjs";
+
 /**
  * Shorthand for `document.querySelector()`. If a parent element is provided, it will search within that element instead of the entire document.
  * @param {string} selector - The CSS selector to match.
@@ -97,12 +99,11 @@ export async function loadTemplate(path) {
  */
 export async function loadHeaderFooter() {
   const headertTemplate = await loadTemplate("/partials/header.html");
-  //const footerTemplate = await loadTemplate("/partials/footer.html");
+  const footerTemplate = await loadTemplate("/partials/footer.html");
 
   const bodyElement = qs("body");
-  //const footerElement = qs("#main-footer");
   renderWithTemplate(headertTemplate, bodyElement);
-  //renderWithTemplate(footerTemplate, footerElement);
+  renderWithTemplate(footerTemplate, bodyElement, null, "beforeend", ContactForm.init);
 }
 /**
  * Generates a random meal difficulty level based on a randomly generated preparation time. The preparation time is a random number between 15 and 120 minutes. The difficulty level is determined as follows: "Easy" for preparation times of 30 minutes or less, "Medium" for preparation times greater than 30 minutes and up to 60 minutes, and "Hard" for preparation times greater than 60 minutes.
