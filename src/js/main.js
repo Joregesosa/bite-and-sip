@@ -41,7 +41,7 @@ async function displayMeal() {
 async function displayTopCategories() {
   const categories = await mealsRequest.getMealsCategories();
   const shuffledCategories = shuffleArray(categories.categories);
-  const reservedCategory = shuffledCategories.pop().strCategory;
+  const reservedCategory = shuffledCategories.pop();
   qs("#category-list").innerHTML = shuffledCategories
     .slice(0, 3)
     .map((category) => CategoryCard(category))
@@ -52,9 +52,10 @@ async function displayTopCategories() {
 /**
  * Fetches and renders 3 random meals from the given category.
  */
-async function displayTopMeals(category) {
-  const meals = await mealsRequest.getMealsByCategory(category);
+async function displayTopMeals({ strCategory, idCategory }) {
+  const meals = await mealsRequest.getMealsByCategory(strCategory);
   const shuffledMeals = shuffleArray(meals.meals);
+  qs("#load-more-meals").href = `/meals/index.html?category=${idCategory}`;
   qs("#meal-list").innerHTML = shuffledMeals
     .slice(0, 6)
     .map((meal) => MealCardDetailed(meal))
