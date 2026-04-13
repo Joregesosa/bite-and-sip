@@ -33,9 +33,7 @@ async function renderMealsByCategory() {
     (category) => category.idCategory === ActiveCategory,
   ).strCategory;
   const meals = await mealsRequest.getMealsByCategory(categoryName);
-  console.log(meals);
   const mealsContainer = qs("#meal-list");
-  console.log(mealsContainer);
   mealsContainer.innerHTML = "";
   mealsContainer.innerHTML = meals.meals
     .map((meal) => MealCardDetailed(meal))
