@@ -104,3 +104,21 @@ export async function loadHeaderFooter() {
   renderWithTemplate(headertTemplate, bodyElement);
   //renderWithTemplate(footerTemplate, footerElement);
 }
+/**
+ * Generates a random meal difficulty level based on a randomly generated preparation time. The preparation time is a random number between 15 and 120 minutes. The difficulty level is determined as follows: "Easy" for preparation times of 30 minutes or less, "Medium" for preparation times greater than 30 minutes and up to 60 minutes, and "Hard" for preparation times greater than 60 minutes.
+ * @returns  {Object} An object containing the randomly generated preparation time and the corresponding difficulty level.
+ */
+export function getMealDificulty() {
+  // generate a random number between 15 and 120
+  const randomTime = Math.floor(Math.random() * (120 - 15 + 1)) + 15;
+  let dificulty = "";
+  if (randomTime <= 30) dificulty = "Easy";
+  if (randomTime > 30 && randomTime <= 60) dificulty = "Medium";
+  if (randomTime > 60) dificulty = "Hard";
+
+  return {
+    time: randomTime,
+    dificulty,
+    barWidth: `${(randomTime / 120) * 100}%`,
+  };
+}
