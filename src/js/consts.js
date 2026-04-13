@@ -28,3 +28,11 @@ export const PROMPT = (
     Reply with the ${type} only, without introductions and any decorative emojies.`;
 
 export const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent`;
+
+export const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+export const WEB3FORMS_URL = import.meta.env.VITE_MAILER_URL;
+
+export const CULINARY_FACT_PROMPT =
+  `Generate a single intriguing culinary fact about world cuisine, food history, or flavor science. ` +
+  `Maximum 400 characters. Write in an elegant, evocative tone suited to a fine dining publication. ` +
+  `No emojis. Reply with the fact only.`;

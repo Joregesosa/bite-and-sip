@@ -85,6 +85,21 @@
           </div>
         </div>
       </section>
+      <!-- Culinary Fact -->
+      <section id="culinary-fact">
+        <div class="flex items-start gap-5 px-8 py-6 bg-surface-container rounded-2xl ghost-border">
+          <span class="material-symbols-outlined text-primary text-3xl shrink-0 mt-0.5">menu_book</span>
+          <div>
+            <span class="text-xs font-bold text-primary tracking-widest uppercase">Culinary Lore</span>
+            <p id="culinary-fact-text" class="text-on-surface-variant text-sm leading-relaxed mt-2">
+              <span class="block animate-pulse space-y-2">
+                <span class="block h-4 bg-surface-container-highest rounded w-full"></span>
+                <span class="block h-4 bg-surface-container-highest rounded w-4/5"></span>
+              </span>
+            </p>
+          </div>
+        </div>
+      </section>
       <!-- Top Categories -->
       <section>
         <div class="flex justify-between items-end mb-12">
@@ -193,88 +208,5 @@
         </div>
       </section>
     </main>
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-rose-500/20">
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 gap-12 px-8 py-16 max-w-7xl mx-auto"
-      >
-        <!-- Branding Graphic Side -->
-        <div class="flex flex-col justify-between space-y-8">
-          <div>
-            <div
-              class="text-2xl font-black text-rose-500 uppercase font-['Inter'] mb-4"
-            >
-              Bite &amp; Sip
-            </div>
-            <p
-              class="text-slate-500 max-w-sm font-['Inter'] text-sm tracking-wide leading-relaxed"
-            >
-              Curating the finest culinary experiences for the nocturnal
-              enthusiast. From heritage spirits to avant-garde dining.
-            </p>
-          </div>
-          <div class="space-y-4">
-            <div class="flex gap-6">
-              <a
-                class="text-slate-500 hover:text-rose-300 transition-all"
-                href="#"
-                >Send your review</a
-              >
-              <a
-                class="text-slate-500 hover:text-rose-300 transition-all"
-                href="#"
-                >About Us</a
-              >
-              <a
-                class="text-slate-500 hover:text-rose-300 transition-all"
-                href="#"
-                >Privacy</a
-              >
-            </div>
-            <p
-              class="text-slate-500 font-['Inter'] text-sm tracking-wide opacity-80"
-            >
-              © 2024 Bite &amp; Sip. The Midnight Sommelier.
-            </p>
-          </div>
-        </div>
-        <!-- Contact Form Side -->
-        <div class="bg-surface-container-low p-10 rounded-4xl ghost-border">
-          <h3 class="text-2xl font-headline font-bold text-on-surface mb-6">
-            Contact the Atelier
-          </h3>
-          <form class="space-y-4">
-            <div>
-              <label
-                class="block text-xs font-bold text-primary tracking-widest uppercase mb-2"
-                >Identity</label
-              >
-              <input
-                class="w-full bg-surface-container-lowest border-none rounded-xl py-3 px-4 text-on-surface focus:ring-1 focus:ring-primary transition-all"
-                placeholder="Your name or pseudonym"
-                type="text"
-              />
-            </div>
-            <div>
-              <label
-                class="block text-xs font-bold text-primary tracking-widest uppercase mb-2"
-                >Message</label
-              >
-              <textarea
-                class="w-full bg-surface-container-lowest border-none rounded-xl py-3 px-4 text-on-surface focus:ring-1 focus:ring-primary transition-all"
-                placeholder="Inquiries or shared secrets..."
-                rows="4"
-              ></textarea>
-            </div>
-            <button
-              class="w-full py-4 rounded-xl bg-primary text-on-primary font-bold hover:bg-primary-container transition-all active:scale-[0.98]"
-              type="submit"
-            >
-              Dispatch Message
-            </button>
-          </form>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>

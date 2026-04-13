@@ -3,7 +3,8 @@ import { loadHeaderFooter, qs, shuffleArray } from "./utils.js";
 import MealsRequest from "./modules/MealsRequest.mjs";
 import GeminiRequest from "./modules/GeminiRequest.mjs";
 import { CategoryCard } from "./components/CategoryCard.js";
-import { MealCard } from "./components/MealCard.js";
+import { MealCard, MealCardDetailed } from "./components/MealCard.js";
+import { CULINARY_FACT_PROMPT } from "./consts.js";
 
 const mealsRequest = new MealsRequest();
 
@@ -52,15 +53,25 @@ async function displayTopCategories() {
  * Fetches and renders 3 random meals from the given category.
  */
 async function displayTopMeals(category) {
-  const meals = await mealsRequest.getMealByCategory(category);
+  const meals = await mealsRequest.getMealsByCategory(category);
   const shuffledMeals = shuffleArray(meals.meals);
   qs("#meal-list").innerHTML = shuffledMeals
-    .slice(0, 3)
-    .map((meal) => MealCard(meal))
+    .slice(0, 6)
+    .map((meal) => MealCardDetailed(meal))
     .join("");
+}
+
+/**
+ * Fetches a culinary fact from Gemini and renders it in the culinary-fact section.
+ */
+async function displayCulinaryFact() {
+  const gemini = new GeminiRequest({ rawPrompt: CULINARY_FACT_PROMPT });
+  const fact = await gemini.getResponse();
+  qs("#culinary-fact-text").textContent = fact;
 }
 
 loadHeaderFooter();
 displayMeal();
+displayCulinaryFact();
 const mealCategory = await displayTopCategories();
 await displayTopMeals(mealCategory);
