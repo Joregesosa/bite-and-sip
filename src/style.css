@@ -72,3 +72,20 @@
 .ghost-border {
   border: 1px solid rgba(255, 178, 183, 0.2);
 }
+
+.glass-nav {
+  background: rgba(11, 19, 38, 0.6);
+  backdrop-filter: blur(20px);
+}
+
+.spirit-gauge-bg {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.active-category {
+  @apply bg-secondary-container text-on-secondary-container;
+}
+
+.category-nav-item {
+  @apply bg-surface-container-highest text-on-surface-variant hover:bg-surface-variant;
+}
