@@ -1,5 +1,11 @@
 import "../style.css";
-import { loadHeaderFooter, qs, shuffleArray } from "./utils.js";
+import {
+  attachFavoritesListener,
+  isMealFavorite,
+  loadHeaderFooter,
+  qs,
+  shuffleArray,
+} from "./utils.js";
 import MealsRequest from "./modules/MealsRequest.mjs";
 import GeminiRequest from "./modules/GeminiRequest.mjs";
 import { CategoryCard } from "./components/CategoryCard.js";
@@ -7,7 +13,7 @@ import { MealCard } from "./components/MealCard.js";
 import { CULINARY_FACT_PROMPT } from "./consts.js";
 
 const mealsRequest = new MealsRequest();
-
+let mealsFromCategory = [];
 /**
  * Fetches a random meal and renders the hero section with its name, image, and Gemini-generated description.
  */
@@ -54,11 +60,12 @@ async function displayTopCategories() {
  */
 async function displayTopMeals({ strCategory, idCategory }) {
   const meals = await mealsRequest.getMealsByCategory(strCategory);
+  mealsFromCategory = meals.meals;
   const shuffledMeals = shuffleArray(meals.meals);
   qs("#load-more-meals").href = `/meals/index.html?category=${idCategory}`;
   qs("#meal-list").innerHTML = shuffledMeals
     .slice(0, 6)
-    .map((meal) => MealCard(meal))
+    .map((meal) => MealCard(meal, isMealFavorite(meal.idMeal)))
     .join("");
 }
 
@@ -70,6 +77,8 @@ async function displayCulinaryFact() {
   const fact = await gemini.getResponse();
   qs("#culinary-fact-text").textContent = fact;
 }
+
+attachFavoritesListener(qs("#meal-list"), () => mealsFromCategory);
 
 loadHeaderFooter();
 displayMeal();

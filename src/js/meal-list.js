@@ -1,17 +1,25 @@
 import "../style.css";
 
-import { loadHeaderFooter, qs, shuffleArray, getParam } from "./utils.js";
+import {
+  loadHeaderFooter,
+  qs,
+  getParam,
+  attachFavoritesListener,
+  isMealFavorite,
+} from "./utils.js";
 import { CategoryNavItem } from "./components/CategoryNavItem.js";
 import MealsRequest from "./modules/MealsRequest.mjs";
 import { MealCard } from "./components/MealCard.js";
 
-const mealsRequest = new MealsRequest();
-
-const mealCategories = await mealsRequest.getMealsCategories();
+const mealsContainer = qs("#meal-list");
 const mealCategoriesContainer = qs("#meal-categories");
+
+const mealsRequest = new MealsRequest();
+const mealCategories = await mealsRequest.getMealsCategories();
+
 let ActiveCategory =
   getParam("category") || mealCategories.categories[0].idCategory;
-
+let mealsFromCategory = [];
 function renderMealCategories() {
   mealCategoriesContainer.innerHTML = mealCategories.categories
     .map((category) => CategoryNavItem(category, ActiveCategory))
@@ -33,10 +41,14 @@ async function renderMealsByCategory() {
     (category) => category.idCategory === ActiveCategory,
   ).strCategory;
   const meals = await mealsRequest.getMealsByCategory(categoryName);
-  const mealsContainer = qs("#meal-list");
+  mealsFromCategory = meals.meals;
   mealsContainer.innerHTML = "";
-  mealsContainer.innerHTML = meals.meals.map((meal) => MealCard(meal)).join("");
+  mealsContainer.innerHTML = mealsFromCategory
+    .map((meal) => MealCard(meal, isMealFavorite(meal.idMeal)))
+    .join("");
 }
+
+attachFavoritesListener(mealsContainer, () => mealsFromCategory);
 
 loadHeaderFooter();
 showSelectedCategoryHeaders();
