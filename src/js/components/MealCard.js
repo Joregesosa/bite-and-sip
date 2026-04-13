@@ -8,7 +8,7 @@ import { getMealDificulty } from "../utils";
  * @param {string} meal.strMealThumb - The URL of the meal's thumbnail image.
  * @returns {string} - The HTML string representing the detailed meal card.
  */
-export const MealCard = ({ strMeal, idMeal, strMealThumb }) => {
+export const MealCard = ({ strMeal, idMeal, strMealThumb }, isFavorite = false) => {
   const mealDifficulty = getMealDificulty();
   return /* html */ `
      <article class="group bg-surface-container-high rounded-xl overflow-hidden ghost-border flex flex-col transition-all duration-300 hover:-translate-y-1 relative">
@@ -19,12 +19,10 @@ export const MealCard = ({ strMeal, idMeal, strMealThumb }) => {
                 data-alt="Close-up of truffle mushroom risotto served in a rustic ceramic bowl with fresh herbs and shaved parmesan on a dark background"
                 src="${strMealThumb}"
               />
-              <button
-                class="absolute top-4 right-4 bg-surface/60 backdrop-blur-md p-2 rounded-full text-primary hover:bg-primary hover:text-on-primary transition-all duration-300"
-              >
-                <span class="material-symbols-outlined" data-icon="favorite"
-                  >favorite</span
-                >
+              <button class="heart-btn z-10 absolute top-4 right-4 bg-surface/60 backdrop-blur-md p-2 rounded-full text-primary hover:bg-primary hover:text-on-primary transition-all duration-300 cursor-pointer${isFavorite ? " favorite" : ""}" value="${idMeal}">
+                <span class="material-symbols-outlined heart-icon" data-icon="favorite">
+                  favorite
+                </span>
               </button>
               <div class="absolute bottom-4 left-4">
                 <span

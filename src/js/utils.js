@@ -170,3 +170,38 @@ export function getMealDificulty() {
     barWidth: `${(randomTime / 120) * 100}%`,
   };
 }
+/**
+ * @description Handles the addition and removal of meals from the favorites list. It checks if a meal is already in the favorites list stored in local storage. If it is, it removes it; if it isn't, it adds it. The function also toggles the "favorite" class on the provided element to reflect the change in the UI.
+ * @param {*} mealId
+ * @param {*} element
+ * @param {*} meals
+ */
+export function favoritesHandler(mealId, element, meals) {
+  let favorites = getLocalStorage("favorites") || [];
+  if (favorites.some((meal) => meal.idMeal === mealId)) {
+    favorites = favorites.filter((meal) => meal.idMeal !== mealId);
+  } else {
+    const mealToAdd = meals.find((meal) => meal.idMeal === mealId);
+    if (mealToAdd) {
+      favorites.push(mealToAdd);
+    }
+  }
+  setLocalStorage("favorites", favorites);
+  element.classList.toggle("favorite");
+}
+
+export function isMealFavorite(mealId) {
+  const favorites = getLocalStorage("favorites") || [];
+  return favorites.some((meal) => meal.idMeal === mealId);
+}
+
+export function attachFavoritesListener(container, getMeals, cb = () => {}) {
+  container.addEventListener("click", (event) => {
+    const favoriteButton = event.target.closest(".heart-btn");
+    if (favoriteButton) {
+      const mealId = favoriteButton.value;
+      favoritesHandler(mealId, favoriteButton, getMeals());
+    }
+    cb();
+  });
+}

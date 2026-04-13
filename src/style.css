@@ -101,3 +101,23 @@
 .active-link {
   @apply text-rose-400 font-bold border-b-2 border-rose-500 pb-1;
 }
+
+.heart-icon {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+  transition:
+    font-variation-settings 0.2s ease,
+    color 0.2s ease;
+}
+
+.heart-btn:hover .heart-icon,
+.heart-btn.favorite .heart-icon {
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
