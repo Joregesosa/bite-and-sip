@@ -18,7 +18,6 @@ export function qs(selector, parent = document) {
 export async function getData(url) {
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data);
   return data;
 }
 
@@ -94,8 +93,21 @@ export async function loadTemplate(path) {
 }
 
 /**
- * Loads the header and footer templates and renders them into the respective elements in the DOM. The header template is loaded from "/partials/header.html" and rendered into the element with the ID "main-header". The footer template is loaded from "/partials/footer.html" and rendered into the element with the ID "main-footer".
- * @returns {Promise<void>} A promise that resolves when both the header and footer have been loaded and rendered.
+ * Highlights the nav link whose href matches the current page path.
+ * Compares each `.nav-link`'s pathname against `window.location.pathname`.
+ */
+export function setActiveNavLink() {
+  const path = window.location.pathname;
+  const activeLink = qs(`.active-link`);
+  if (activeLink) activeLink.classList.remove("active-link");
+  const navLink = qs(`.nav-link[href="${path}"]`);
+  if (navLink) navLink.classList.add("active-link");
+}
+
+/**
+ * Loads the header and footer templates and renders them into the DOM.
+ * Also initialises header interactions: active nav link, mobile menu, and surprise button.
+ * @returns {Promise<void>}
  */
 export async function loadHeaderFooter() {
   const headertTemplate = await loadTemplate("/partials/header.html");
@@ -103,7 +115,42 @@ export async function loadHeaderFooter() {
 
   const bodyElement = qs("body");
   renderWithTemplate(headertTemplate, bodyElement);
-  renderWithTemplate(footerTemplate, bodyElement, null, "beforeend", ContactForm.init);
+  renderWithTemplate(
+    footerTemplate,
+    bodyElement,
+    null,
+    "beforeend",
+    ContactForm.init,
+  );
+
+  setActiveNavLink();
+
+  // Mobile menu toggle
+  const toggle = document.getElementById("nav-mobile-toggle");
+  const menu = document.getElementById("nav-mobile-menu");
+  const icon = document.getElementById("nav-mobile-icon");
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = !menu.classList.contains("hidden");
+    menu.classList.toggle("hidden", isOpen);
+    icon.textContent = isOpen ? "menu" : "close";
+  });
+
+  // Surprise me — fetch a random meal and navigate to its detail page
+  document
+    .getElementById("nav-surprise-btn")
+    ?.addEventListener("click", async () => {
+      try {
+        const res = await fetch(
+          "https://www.themealdb.com/api/json/v1/1/random.php",
+        );
+        const data = await res.json();
+        const id = data?.meals?.[0]?.idMeal;
+        if (id) window.location.href = `/meals/meal-details.html?meal=${id}`;
+      } catch {
+        window.location.href = "/meals/index.html";
+      }
+    });
 }
 /**
  * Generates a random meal difficulty level based on a randomly generated preparation time. The preparation time is a random number between 15 and 120 minutes. The difficulty level is determined as follows: "Easy" for preparation times of 30 minutes or less, "Medium" for preparation times greater than 30 minutes and up to 60 minutes, and "Hard" for preparation times greater than 60 minutes.

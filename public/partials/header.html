@@ -1,40 +1,83 @@
 <nav
-  class="fixed top-0 w-full flex justify-between items-center px-6 py-4 max-w-full bg-slate-950/60 backdrop-blur-xl docked full-width z-50 transition-all"
+  class="fixed top-0 w-full flex justify-between items-center px-6 py-4 max-w-full bg-slate-950/60 backdrop-blur-xl z-50 transition-all"
 >
-  <div
-    class="text-xl font-bold text-rose-500 flex items-center gap-2 font-['Epilogue'] tracking-tight"
+  <!-- Logo -->
+  <a
+    href="/"
+    class="text-xl font-bold text-rose-500 flex items-center gap-2 font-['Epilogue'] tracking-tight hover:text-rose-400 transition-colors"
   >
-    <span class="material-symbols-outlined" data-icon="restaurant"
-      >restaurant</span
-    >
+    <span class="material-symbols-outlined">restaurant</span>
     <span>Bite &amp; Sip</span>
-  </div>
+  </a>
+
+  <!-- Desktop links -->
   <div
     class="hidden md:flex items-center gap-8 font-['Epilogue'] tracking-tight"
   >
     <a
-      class="text-rose-400 font-bold border-b-2 border-rose-500 pb-1 transition-colors"
-      href="#"
+      class="nav-link text-slate-400 hover:text-slate-200 transition-colors"
+      href="/"
+      >Home</a
+    >
+    <a
+      class="nav-link text-slate-400 hover:text-slate-200 transition-colors"
+      href="/meals/index.html"
       >Meals</a
     >
-    <a class="text-slate-400 hover:text-slate-200 transition-colors" href="#"
-      >Drinks</a
+    <a
+      class="text-slate-400 hover:text-slate-200 transition-colors"
+      href="/#category-list"
+      >My Selections</a
     >
   </div>
-  <div class="flex items-center gap-4 text-rose-400">
-    <button
+
+  <!-- Right actions -->
+  <div class="flex items-center gap-1 text-rose-400">
+    <a
+      href="/meals/index.html"
       class="p-2 hover:bg-white/5 rounded-full transition-colors active:scale-95 duration-100"
+      title="Browse all meals"
     >
-      <span class="material-symbols-outlined" data-icon="restaurant"
-        >restaurant</span
-      >
+      <span class="material-symbols-outlined">search</span>
+    </a>
+    <button
+      id="nav-surprise-btn"
+      class="p-2 hover:bg-white/5 rounded-full transition-colors active:scale-95 duration-100"
+      title="Surprise me — random meal"
+    >
+      <span class="material-symbols-outlined">shuffle</span>
     </button>
+    <!-- Mobile toggle -->
     <button
-      class="p-2 hover:bg-white/5 rounded-full transition-colors active:scale-95 duration-100"
+      id="nav-mobile-toggle"
+      class="md:hidden p-2 hover:bg-white/5 rounded-full transition-colors active:scale-95 duration-100"
+      aria-label="Toggle menu"
     >
-      <span class="material-symbols-outlined" data-icon="local_bar"
-        >local_bar</span
-      >
+      <span class="material-symbols-outlined" id="nav-mobile-icon">menu</span>
     </button>
   </div>
 </nav>
+
+<!-- Mobile menu -->
+<div
+  id="nav-mobile-menu"
+  class="fixed top-18 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur-xl border-t border-rose-500/10 hidden md:hidden"
+>
+  <div class="flex flex-col p-4 font-['Epilogue'] gap-1">
+    <a
+      href="/"
+      class="px-4 py-3 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors"
+      >Home</a
+    >
+    <a
+      href="/meals/index.html"
+      class="px-4 py-3 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors"
+      >Meals</a
+    >
+    <a
+      href="/#category-list"
+      class="px-4 py-3 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-colors"
+      >Categories</a
+    >
+  </div>
+</div>

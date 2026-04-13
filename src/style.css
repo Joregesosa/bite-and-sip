@@ -97,3 +97,7 @@
 .form-status-error {
   @apply bg-error/10 text-error border border-error/20;
 }
+
+.active-link {
+  @apply text-rose-400 font-bold border-b-2 border-rose-500 pb-1;
+}
