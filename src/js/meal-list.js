@@ -10,6 +10,7 @@ import {
 import { CategoryNavItem } from "./components/CategoryNavItem.js";
 import MealsRequest from "./modules/MealsRequest.mjs";
 import { MealCard } from "./components/MealCard.js";
+import { LazyRenderer } from "./modules/LazyRenderer.mjs";
 
 const mealsContainer = qs("#meal-list");
 const mealCategoriesContainer = qs("#meal-categories");
@@ -20,6 +21,13 @@ const mealCategories = await mealsRequest.getMealsCategories();
 let ActiveCategory =
   getParam("category") || mealCategories.categories[0].idCategory;
 let mealsFromCategory = [];
+
+const lazyRenderer = new LazyRenderer({
+  container: mealsContainer,
+  sentinel: document.querySelector("#scroll-sentinel"),
+  renderItem: (meal) => MealCard(meal, isMealFavorite(meal.idMeal)),
+});
+
 function renderMealCategories() {
   mealCategoriesContainer.innerHTML = mealCategories.categories
     .map((category) => CategoryNavItem(category, ActiveCategory))
@@ -42,10 +50,7 @@ async function renderMealsByCategory() {
   ).strCategory;
   const meals = await mealsRequest.getMealsByCategory(categoryName);
   mealsFromCategory = meals.meals;
-  mealsContainer.innerHTML = "";
-  mealsContainer.innerHTML = mealsFromCategory
-    .map((meal) => MealCard(meal, isMealFavorite(meal.idMeal)))
-    .join("");
+  lazyRenderer.load(mealsFromCategory);
 }
 
 attachFavoritesListener(mealsContainer, () => mealsFromCategory);

@@ -11,7 +11,7 @@ import { getMealDificulty } from "../utils";
 export const MealCard = ({ strMeal, idMeal, strMealThumb }, isFavorite = false) => {
   const mealDifficulty = getMealDificulty();
   return /* html */ `
-     <article class="group bg-surface-container-high rounded-xl overflow-hidden ghost-border flex flex-col transition-all duration-300 hover:-translate-y-1 relative">
+     <article class="meal-card group bg-surface-container-high rounded-xl overflow-hidden ghost-border flex flex-col transition-all duration-300 hover:-translate-y-1 relative">
             <div class="relative h-64 overflow-hidden">
               <img
                 alt="${strMeal}"

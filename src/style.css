@@ -121,3 +121,19 @@
     "GRAD" 0,
     "opsz" 24;
 }
+
+.meal-card {
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out,
+    translate 0.3s,
+    box-shadow 0.3s;
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  &:nth-child(odd) {
+    @apply delay-300;
+  }
+}
