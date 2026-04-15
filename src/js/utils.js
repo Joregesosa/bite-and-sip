@@ -11,17 +11,6 @@ export function qs(selector, parent = document) {
 }
 
 /**
- * Fetches JSON data from a specified URL.
- * @param {string} url - The URL to fetch data from.
- * @returns {Promise<any>} A promise that resolves to the fetched JSON data.
- */
-export async function getData(url) {
-  const res = await fetch(url);
-  const data = await res.json();
-  return data;
-}
-
-/**
  * Retrieves data from local storage.
  * @param {string} key - The key for the data to retrieve.
  * @returns {*} The parsed data from local storage, or null if not found.
@@ -37,6 +26,24 @@ export function getLocalStorage(key) {
  */
 export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
+}
+
+/**
+ * Retrieves data from session storage.
+ * @param {string} key - The key for the data to retrieve.
+ * @returns {*} The parsed data from session storage, or null if not found.
+ */
+export function getSessionStorage(key) {
+  return JSON.parse(sessionStorage.getItem(key));
+}
+
+/**
+ * Saves data to session storage.
+ * @param {string} key - The key for the data to save.
+ * @param {*} data - The data to save.
+ */
+export function setSessionStorage(key, data) {
+  sessionStorage.setItem(key, JSON.stringify(data));
 }
 
 /**
@@ -190,11 +197,22 @@ export function favoritesHandler(mealId, element, meals) {
   element.classList.toggle("favorite");
 }
 
+/**
+ * Checks if a meal is in the favorites list.
+ * @param {string} mealId - The ID of the meal to check.
+ * @returns {boolean} - True if the meal is favorited, false otherwise.
+ */
 export function isMealFavorite(mealId) {
   const favorites = getLocalStorage("favorites") || [];
   return favorites.some((meal) => meal.idMeal === mealId);
 }
 
+/**
+ * Attaches a click event listener to a specified container element that listens for clicks on elements with the class "heart-btn". When a click is detected on a "heart-btn" element, it retrieves the meal ID from the button's value, calls the `favoritesHandler` function to add or remove the meal from the favorites list, and then executes an optional callback function.
+ * @param {Element} container - The container element to which the click event listener will be attached.
+ * @param {Function} getMeals - A function that returns the current list of meals, used to find the meal details when adding to favorites.
+ * @param {Function} cb - An optional callback function to be executed after handling the favorite action.
+ */
 export function attachFavoritesListener(container, getMeals, cb = () => {}) {
   container.addEventListener("click", (event) => {
     const favoriteButton = event.target.closest(".heart-btn");
