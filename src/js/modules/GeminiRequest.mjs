@@ -37,14 +37,21 @@ export default class GeminiRequest extends BaseRequest {
       },
       body,
     );
+    this._cacheKey = mealName ? `gemini_${mealName}_${type}` : "gemini_fact";
   }
 
   /**
    * Fetches the description of the meal from the Gemini API.
+   * Results are cached in sessionStorage by meal name and request type.
    * @returns {Promise<string>} - The description of the meal.
    */
   async getResponse() {
+    const cached = sessionStorage.getItem(this._cacheKey);
+    if (cached) return cached;
+
     const result = await this.send();
-    return result.candidates[0].content.parts[0].text;
+    const text = result.candidates[0].content.parts[0].text;
+    sessionStorage.setItem(this._cacheKey, text);
+    return text;
   }
 }
